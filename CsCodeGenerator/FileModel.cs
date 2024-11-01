@@ -24,6 +24,8 @@ namespace CsCodeGenerator
 
         public List<ClassModel> Classes { get; set; } = new List<ClassModel>();
 
+        public List<InterfaceModel> Interfaces { get; set; } = new List<InterfaceModel>();
+
         public void LoadUsingDirectives(List<string> usingDirectives)
         {
             foreach (var usingDirective in usingDirectives)
@@ -41,6 +43,8 @@ namespace CsCodeGenerator
             result += string.Join(Util.NewLine, Enums);
             result += (Enums.Count > 0 && Classes.Count > 0) ? Util.NewLine : "";
             result += string.Join(Util.NewLine, Classes);
+            result += (Classes.Count > 0 && Interfaces.Count > 0) ? Util.NewLine : "";
+            result += string.Join(Util.NewLine, Interfaces);
             result += Util.NewLine + "}";
             result += Util.NewLine;
             return result;

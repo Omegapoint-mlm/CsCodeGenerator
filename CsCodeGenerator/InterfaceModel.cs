@@ -34,7 +34,6 @@ namespace CsCodeGenerator
             result += string.Join(Util.NewLine, Methods);
 
             result += Util.NewLine + Indent + "}";
-            result = result.Replace(AccessModifier.Public.ToTextLower() + " ", "");
             result = result.Replace("\r\n        {\r\n        }", ";");
             return result;
         }
